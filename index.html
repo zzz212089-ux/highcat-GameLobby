@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>歡樂喵喵屋</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Google Fonts: Inter & Rock / Display Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;600;800;900&family=Permanent+Marker&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
+      background-color: #09090b;
+      color: #f4f4f5;
+      overflow-x: hidden;
+    }
+
+    .rock-font {
+      font-family: 'Bungee', 'Noto Sans TC', cursive, sans-serif;
+    }
+
+    .marker-font {
+      font-family: 'Permanent Marker', cursive;
+    }
+
+    /* Stage Amp speaker grill texture */
+    .amp-grille {
+      background-color: #121118;
+      background-image: radial-gradient(#27272a 1px, transparent 1px), radial-gradient(#27272a 1px, #121118 1px);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+    }
+
+    /* Headbanging rhythm animation for the center rocker mascot */
+    @keyframes rockHeadbang {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-5px) rotate(-2.5deg);
+      }
+      50% {
+        transform: translateY(3px) rotate(0deg);
+      }
+      75% {
+        transform: translateY(-4px) rotate(2.5deg);
+      }
+    }
+
+    .rock-headbang {
+      animation: rockHeadbang 0.65s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+      transform-origin: 50% 90%;
+    }
+
+    /* Spotlight breathing glow */
+    @keyframes spotlightPulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.08); }
+    }
+
+    .spotlight-glow {
+      animation: spotlightPulse 3.5s ease-in-out infinite;
+    }
+
+    /* Audio Equalizer active bars */
+    @keyframes eqBarDance {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+
+    .eq-bar-active:nth-child(1) { animation: eqBarDance 0.4s ease-in-out infinite 0.1s; }
+    .eq-bar-active:nth-child(2) { animation: eqBarDance 0.35s ease-in-out infinite 0.25s; }
+    .eq-bar-active:nth-child(3) { animation: eqBarDance 0.45s ease-in-out infinite 0.05s; }
+    .eq-bar-active:nth-child(4) { animation: eqBarDance 0.38s ease-in-out infinite 0.2s; }
+
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #dc2626;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-red-500 selection:text-white">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 w-full bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/80 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xl shadow-black/60">
+    <!-- Brand Logo: Natural-contoured Ginger & White Cat wearing Pixel Meme Sunglasses -->
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-950 border-2 border-amber-500/70 flex items-center justify-center p-0.5 shadow-lg shadow-amber-500/20 overflow-hidden">
+        <!-- Ginger & White Tabby with prominent 8-bit pixel meme sunglasses -->
+        <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gingerCoat" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#fb923c"/>
+              <stop offset="60%" stop-color="#f97316"/>
+              <stop offset="100%" stop-color="#ea580c"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Natural Feline Head Silhouette -->
+          <path d="M 27,33 
+                   C 22,23 15,14 13,11 
+                   C 12,9 15,8 18,12 
+                   C 24,19 32,24 38,26 
+                   C 43,23 57,23 62,26 
+                   C 68,24 76,19 82,12 
+                   C 85,8 88,9 87,11 
+                   C 85,14 78,23 73,33 
+                   C 81,41 89,51 88,64 
+                   C 87,74 81,81 72,88 
+                   C 65,93 57,95 50,95 
+                   C 43,95 35,93 28,88 
+                   C 19,81 13,74 12,64 
+                   C 11,51 19,41 27,33 Z" 
+                fill="url(#gingerCoat)" 
+                stroke="#c2410c" 
+                stroke-width="1.8" 
+                stroke-linejoin="round"/>
+
+          <!-- Inner Ears -->
+          <path d="M 21,17 C 23,26 29,32 34,28 C 30,22 25,18 21,17 Z" fill="#fda4af"/>
+          <path d="M 79,17 C 77,26 71,32 66,28 C 70,22 75,18 79,17 Z" fill="#fda4af"/>
+          <!-- Ear Fluff -->
+          <path d="M 20,34 Q 26,27 33,30" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M 80,34 Q 74,27 67,30" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+          <!-- Ginger Tabby Forehead Stripes -->
+          <path d="M 46,26 L 47,35 M 54,26 L 53,35 M 50,24 L 50,37" stroke="#c2410c" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 37,30 L 41,36 M 63,30 L 59,36" stroke="#c2410c" stroke-width="1.8" stroke-linecap="round"/>
+
+          <!-- White Muzzle & Cheeks -->
+          <path d="M 34,48 
+                   C 42,46 58,46 66,48 
+                   C 74,56 82,65 80,75 
+                   C 78,83 69,90 50,91 
+                   C 31,90 22,83 20,75 
+                   C 18,65 26,56 34,48 Z" 
+                fill="#ffffff" 
+                stroke="#ffedd5" 
+                stroke-width="1"/>
+
+          <!-- Whisker Pads & Nose -->
+          <ellipse cx="43" cy="74" rx="8" ry="5" fill="#ffffff"/>
+          <ellipse cx="57" cy="74" rx="8" ry="5" fill="#ffffff"/>
+          <path d="M 47,70 L 53,70 L 50,74 Z" fill="#fb7185"/>
+
+          <!-- Smirking Rocker Mouth -->
+          <path d="M 44,75 Q 50,79 50,75 Q 50,79 56,75" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Whiskers -->
+          <line x1="26" y1="72" x2="6" y2="69" stroke="#fed7aa" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="25" y1="76" x2="7" y2="78" stroke="#fed7aa" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="74" y1="72" x2="94" y2="69" stroke="#fed7aa" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="75" y1="76" x2="93" y2="78" stroke="#fed7aa" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- 8-BIT "DEAL WITH IT" PIXEL MEME SUNGLASSES -->
+          <g shape-rendering="crispEdges">
+            <!-- Left Frame -->
+            <rect x="8" y="46" width="8" height="4" fill="#000000"/>
+            <rect x="16" y="50" width="4" height="4" fill="#000000"/>
+            <rect x="20" y="46" width="23" height="4" fill="#000000"/>
+            <rect x="20" y="50" width="23" height="4" fill="#000000"/>
+            <rect x="20" y="54" width="23" height="4" fill="#000000"/>
+            <rect x="20" y="58" width="19" height="4" fill="#000000"/>
+            <rect x="24" y="62" width="11" height="4" fill="#000000"/>
+
+            <!-- Left White Specular Glare -->
+            <rect x="24" y="50" width="6" height="4" fill="#ffffff"/>
+            <rect x="28" y="54" width="6" height="4" fill="#ffffff"/>
+
+            <!-- Bridge -->
+            <rect x="43" y="50" width="14" height="4" fill="#000000"/>
+
+            <!-- Right Frame -->
+            <rect x="57" y="46" width="23" height="4" fill="#000000"/>
+            <rect x="57" y="50" width="23" height="4" fill="#000000"/>
+            <rect x="57" y="54" width="23" height="4" fill="#000000"/>
+            <rect x="61" y="58" width="19" height="4" fill="#000000"/>
+            <rect x="65" y="62" width="11" height="4" fill="#000000"/>
+
+            <!-- Right White Specular Glare -->
+            <rect x="61" y="50" width="6" height="4" fill="#ffffff"/>
+            <rect x="65" y="54" width="6" height="4" fill="#ffffff"/>
+
+            <!-- Right Arm -->
+            <rect x="80" y="50" width="4" height="4" fill="#000000"/>
+            <rect x="84" y="46" width="8" height="4" fill="#000000"/>
+
+            <!-- Gold Glint Star on Corner -->
+            <rect x="18" y="38" width="4" height="4" fill="#facc15"/>
+            <rect x="14" y="42" width="12" height="4" fill="#facc15"/>
+            <rect x="18" y="46" width="4" height="4" fill="#facc15"/>
+            <rect x="18" y="42" width="4" height="4" fill="#ffffff"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-xl sm:text-2xl font-black tracking-wider rock-font text-white flex items-center gap-2">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-amber-400">歡樂喵喵屋</span>
+          </h1>
+          <span class="text-[10px] bg-red-600/30 border border-red-500 text-red-300 font-extrabold px-2 py-0.5 rounded-full uppercase tracking-widest hidden sm:inline-block">
+            HAPPY HOUSE
+          </span>
+        </div>
+        <p class="text-xs text-zinc-400 font-bold hidden sm:block">
+          狂歡遊戲舞台
+        </p>
+      </div>
+    </div>
+
+    <!-- Controls: Rock BGM Audio + Add Game Connector -->
+    <div class="flex items-center gap-2.5">
+      <!-- Rock BGM Controller -->
+      <button 
+        id="musicBtn" 
+        onclick="toggleRockMusic(event)" 
+        class="px-3.5 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-red-500/50 text-white font-black text-xs sm:text-sm flex items-center gap-2 transition active:scale-95 shadow-md shadow-red-950 cursor-pointer"
+        title="點擊播放/暫停音樂"
+      >
+        <div id="eqVisualizer" class="flex items-end gap-0.5 h-4 w-4">
+          <span class="w-1 bg-zinc-500 rounded-full h-1"></span>
+          <span class="w-1 bg-zinc-500 rounded-full h-2"></span>
+          <span class="w-1 bg-zinc-500 rounded-full h-1"></span>
+          <span class="w-1 bg-zinc-500 rounded-full h-1.5"></span>
+        </div>
+        <span id="musicText">點擊播放音樂 ⚡</span>
+      </button>
+
+      <!-- Single Clean Connector Button (Rock Zone) -->
+      <button 
+        onclick="openAddModal()" 
+        class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 border border-red-300 text-white font-black text-xs sm:text-sm flex items-center gap-1.5 transition active:scale-95 shadow-lg shadow-red-600/40"
+        title="搖滾區：新增自訂遊戲網址"
+      >
+        <i class="fa-solid fa-bolt text-amber-300"></i>
+        <span>搖滾區</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-6">
+
+    <!-- Hero Rock Stage Banner -->
+    <div class="amp-grille rounded-3xl border-2 border-red-600/50 p-6 sm:p-8 mb-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative shadow-2xl shadow-red-950/30">
+      <!-- Background Stage Lights -->
+      <div class="absolute -top-20 -left-20 w-64 h-64 bg-red-600/20 rounded-full blur-3xl spotlight-glow pointer-events-none"></div>
+      <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl spotlight-glow pointer-events-none"></div>
+      <div class="absolute top-2 right-8 text-6xl text-zinc-800/40 font-black marker-font select-none pointer-events-none">ROCK ON!</div>
+
+      <!-- Stage Intro Text -->
+      <div class="z-10 text-center md:text-left max-w-xl">
+        <div class="inline-flex items-center gap-2 bg-red-950/80 border border-red-500/60 text-red-300 text-xs font-black px-3.5 py-1 rounded-full mb-3">
+          <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+          <span>⚡ LIVE CONCERT • 舞台全開</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-black text-white tracking-wider rock-font leading-tight">
+          熱血搖滾，隨時震撼開打！
+        </h2>
+        <p class="text-zinc-400 font-bold text-xs sm:text-sm mt-2.5 leading-relaxed">
+          點擊下方遊戲直接進入狂歡～
+        </p>
+      </div>
+
+      <!-- Rocker Black Cat Mascot Centerpiece: Unique Bombay Feline with Piercings, Custom Shades, and Symmetrical Fangs -->
+      <div class="z-10 flex flex-col items-center">
+        <div class="w-44 h-44 sm:w-48 sm:h-48 rounded-3xl bg-zinc-900 border-2 border-red-500 p-2 flex flex-col items-center justify-center relative shadow-2xl shadow-red-900/40 overflow-hidden">
+          
+          <!-- Amplifier Speaker Texture -->
+          <div class="absolute inset-0 amp-grille opacity-50"></div>
+
+          <!-- Rocker Black Cat Mascot SVG -->
+          <div class="w-full h-full rock-headbang relative z-10 flex items-center justify-center">
+            <svg viewBox="0 0 200 200" class="w-40 h-40 drop-shadow-[0_12px_24px_rgba(220,38,38,0.5)]">
+              <defs>
+                <linearGradient id="rockBlackFur" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#2c2838"/>
+                  <stop offset="45%" stop-color="#14131b"/>
+                  <stop offset="100%" stop-color="#08070c"/>
+                </linearGradient>
+
+                <linearGradient id="rockLensReflect" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ef4444"/>
+                  <stop offset="40%" stop-color="#991b1b"/>
+                  <stop offset="70%" stop-color="#450a0a"/>
+                  <stop offset="100%" stop-color="#09090b"/>
+                </linearGradient>
+
+                <linearGradient id="silverHardware" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="50%" stop-color="#d4d4d8"/>
+                  <stop offset="100%" stop-color="#71717a"/>
+                </linearGradient>
+
+                <linearGradient id="goldLightning" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fef08a"/>
+                  <stop offset="50%" stop-color="#eab308"/>
+                  <stop offset="100%" stop-color="#ca8a04"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Black Cat Shoulders / Leather Jacket Collar -->
+              <path d="M 44,178 C 44,162 68,154 100,154 C 132,154 156,162 156,178 L 162,200 L 38,200 Z" fill="#0d0c13" stroke="#ef4444" stroke-width="1.8"/>
+              
+              <!-- Biker Leather Choker with Silver Cone Studs -->
+              <path d="M 52,162 Q 100,176 148,162 L 150,175 Q 100,189 50,175 Z" fill="#09090b" stroke="#3f3f46" stroke-width="1.5"/>
+              <polygon points="62,165 65,156 68,166" fill="url(#silverHardware)"/>
+              <polygon points="78,167 81,158 84,168" fill="url(#silverHardware)"/>
+              <polygon points="116,167 119,158 122,168" fill="url(#silverHardware)"/>
+              <polygon points="132,165 135,156 138,166" fill="url(#silverHardware)"/>
+              
+              <!-- Center Lightning Rocker Pendant -->
+              <circle cx="100" cy="176" r="3.5" fill="url(#silverHardware)"/>
+              <path d="M 101,178 L 97,186 L 100,186 L 98,194 L 104,184 L 101,184 Z" fill="url(#goldLightning)" stroke="#713f12" stroke-width="0.7"/>
+
+              <!-- Sleek Bombay Black Cat Head Silhouette -->
+              <path d="M 48,58 
+                       C 42,34 30,12 24,6 
+                       C 21,3 25,2 30,7 
+                       C 45,22 62,38 72,40 
+                       C 82,36 118,36 128,40 
+                       C 138,38 155,22 170,7 
+                       C 175,2 179,3 176,6 
+                       C 170,12 158,34 152,58 
+                       C 168,76 176,102 170,126 
+                       C 165,145 144,158 126,162 
+                       C 116,164 108,165 100,165 
+                       C 92,165 84,164 74,162 
+                       C 56,158 35,145 30,126 
+                       C 24,102 32,76 48,58 Z" 
+                    fill="url(#rockBlackFur)" 
+                    stroke="#dc2626" 
+                    stroke-width="2.4" 
+                    stroke-linejoin="round"/>
+
+              <!-- Velvet Ear Conchas -->
+              <path d="M 36,16 C 44,36 56,48 65,42 C 57,32 46,22 36,16 Z" fill="#201524"/>
+              <path d="M 164,16 C 156,36 144,48 135,42 C 143,32 154,22 164,16 Z" fill="#201524"/>
+
+              <!-- Dual Silver Ring Piercings on Left Ear Tip -->
+              <ellipse cx="25" cy="11" rx="2.5" ry="5.5" transform="rotate(-30 25 11)" fill="none" stroke="url(#silverHardware)" stroke-width="2"/>
+              <ellipse cx="29" cy="17" rx="2.2" ry="5" transform="rotate(-28 29 17)" fill="none" stroke="url(#silverHardware)" stroke-width="1.8"/>
+
+              <!-- Glowing Amber Cat Eyes behind shades -->
+              <ellipse cx="68" cy="84" rx="14" ry="10" fill="#facc15" opacity="0.95"/>
+              <ellipse cx="68" cy="84" rx="3.5" ry="9" fill="#050505"/>
+              <circle cx="65" cy="80" r="2.5" fill="#ffffff"/>
+
+              <ellipse cx="132" cy="84" rx="14" ry="10" fill="#facc15" opacity="0.95"/>
+              <ellipse cx="132" cy="84" rx="3.5" ry="9" fill="#050505"/>
+              <circle cx="129" cy="80" r="2.5" fill="#ffffff"/>
+
+              <!-- Edgy Angular Rocker Cat-Eye Sunglasses -->
+              <g>
+                <path d="M 88,80 Q 100,77 112,80 L 114,84 Q 100,81 86,84 Z" fill="#09090b" stroke="#dc2626" stroke-width="1.2"/>
+                <polygon points="36,70 90,75 88,96 52,102 36,88" fill="#09090b" stroke="#ef4444" stroke-width="2"/>
+                <polygon points="40,73 86,78 84,93 54,98 40,86" fill="url(#rockLensReflect)"/>
+                <polygon points="45,74 58,75 48,96 42,94" fill="#ffffff" opacity="0.8"/>
+
+                <polygon points="164,70 110,75 112,96 148,102 164,88" fill="#09090b" stroke="#ef4444" stroke-width="2"/>
+                <polygon points="160,73 114,78 116,93 146,98 160,86" fill="url(#rockLensReflect)"/>
+                <polygon points="155,74 142,75 152,96 158,94" fill="#ffffff" opacity="0.8"/>
+
+                <line x1="36" y1="72" x2="26" y2="68" stroke="url(#silverHardware)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="164" y1="72" x2="174" y2="68" stroke="url(#silverHardware)" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+
+              <!-- Whisker Pads & Pores -->
+              <ellipse cx="88" cy="130" rx="14" ry="9" fill="#16151f" stroke="#27272a" stroke-width="1.2"/>
+              <ellipse cx="112" cy="130" rx="14" ry="9" fill="#16151f" stroke="#27272a" stroke-width="1.2"/>
+              <circle cx="83" cy="129" r="1.1" fill="#71717a"/>
+              <circle cx="88" cy="132" r="1.1" fill="#71717a"/>
+              <circle cx="92" cy="129" r="1.1" fill="#71717a"/>
+              <circle cx="108" cy="129" r="1.1" fill="#71717a"/>
+              <circle cx="112" cy="132" r="1.1" fill="#71717a"/>
+              <circle cx="117" cy="129" r="1.1" fill="#71717a"/>
+
+              <!-- Independent Slate Nose Leather -->
+              <path d="M 94,119 Q 100,117 106,119 C 106,123 103,126 100,126 C 97,126 94,123 94,119 Z" fill="#1e1e26" stroke="#52525b" stroke-width="1.2" stroke-linejoin="round"/>
+              <ellipse cx="97" cy="121" rx="1.2" ry="1.4" fill="#09090b"/>
+              <ellipse cx="103" cy="121" rx="1.2" ry="1.4" fill="#09090b"/>
+              <path d="M 96,119 Q 100,118 104,119" stroke="#94a3b8" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+              <!-- Vertical Philtrum clearly separating Nose from Mouth -->
+              <line x1="100" y1="126" x2="100" y2="133" stroke="#3f3f46" stroke-width="2.2" stroke-linecap="round"/>
+
+              <!-- Smug Feline Mouth with Symmetrical Dual White Fangs -->
+              <path d="M 86,133 Q 94,136 100,133 Q 106,136 114,133" stroke="#71717a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M 90,134 Q 100,146 110,134 Z" fill="#4c0519" stroke="#ef4444" stroke-width="1.2"/>
+              <path d="M 95,140 Q 100,144 105,140" fill="#f43f5e"/>
+
+              <!-- Symmetrical Dual White Rocker Fangs -->
+              <polygon points="89,134 92,143 95,134" fill="#ffffff" stroke="#991b1b" stroke-width="0.8"/>
+              <polygon points="105,134 108,143 111,134" fill="#ffffff" stroke="#991b1b" stroke-width="0.8"/>
+              <path d="M 95,147 Q 100,150 105,147" stroke="#3f3f46" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+              <!-- Long Feline Whiskers -->
+              <g stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.9">
+                <line x1="76" y1="128" x2="12" y2="120"/>
+                <line x1="75" y1="133" x2="10" y2="134"/>
+                <line x1="76" y1="138" x2="16" y2="148"/>
+                <line x1="124" y1="128" x2="188" y2="120"/>
+                <line x1="125" y1="133" x2="190" y2="134"/>
+                <line x1="124" y1="138" x2="184" y2="148"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Bottom Stage Badge -->
+          <div class="absolute bottom-2 z-20 bg-red-600 text-white font-black text-[11px] px-3 py-0.5 rounded-full border border-red-300 shadow flex items-center gap-1.5 tracking-wider">
+            <span>🤘</span>
+            <span>Tripping out · 嗑草喵</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Games Header -->
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-2.5">
+        <span class="text-2xl text-red-500">⚡</span>
+        <h3 class="font-black text-xl text-white rock-font tracking-wide">迷幻嗨嗨目錄</h3>
+      </div>
+      <span id="gameTotalCount" class="text-xs font-black bg-zinc-900 border border-zinc-700 text-zinc-300 px-3.5 py-1.5 rounded-xl shadow flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse"></span>
+        <span id="gameCountText">共有 4 款遊戲</span>
+      </span>
+    </div>
+
+    <!-- Games Container Grid -->
+    <div id="gamesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Injected dynamically by JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- Bottom Rock Footer -->
+  <footer class="w-full mt-auto bg-black relative">
+    <!-- Glowing Neon Gradient Divider Line (Red to Rose to Purple) -->
+    <div class="w-full h-[2px] bg-gradient-to-r from-red-600 via-rose-500 to-purple-600 shadow-[0_0_12px_rgba(239,68,68,0.7)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-5 flex items-center justify-end">
+      <div class="text-[11px] sm:text-xs text-zinc-400 font-bold tracking-wider flex items-center gap-1.5 flex-wrap">
+        <span>歡樂喵喵屋</span>
+        <span class="text-amber-400">⚡</span>
+        <span>在遊戲裡嗨起來吧～</span>
+        <span class="text-zinc-300 ml-1">KEEP ON ROCKING!</span>
+        <span class="text-sm">🤘</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add Game Modal (Rock Zone) -->
+  <div id="addModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-zinc-900 border-2 border-red-500/80 rounded-3xl w-full max-w-md p-6 relative shadow-2xl shadow-red-950/60">
+      <button onclick="closeAddModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-black border border-zinc-600 flex items-center justify-center transition">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-red-600 to-rose-600 border border-red-400 flex items-center justify-center text-white text-lg font-black shadow">
+          ⚡
+        </div>
+        <div>
+          <h3 class="text-lg font-black text-white rock-font">搖滾區</h3>
+          <p class="text-xs text-zinc-400 font-bold">輸入自訂遊戲名稱與網址，舞台即刻收錄！</p>
+        </div>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-black text-zinc-300 mb-1">遊戲名稱</label>
+          <input 
+            type="text" 
+            id="inputGameName" 
+            required 
+            placeholder="例如：重金屬節奏大師" 
+            class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-700 focus:border-red-500 focus:outline-none font-bold text-sm bg-zinc-800 text-white"
+          >
+        </div>
+
+        <div>
+          <label class="block text-xs font-black text-zinc-300 mb-1">遊戲網址 (URL)</label>
+          <input 
+            type="url" 
+            id="inputGameUrl" 
+            required 
+            placeholder="https://example.com/my-game" 
+            class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-700 focus:border-red-500 focus:outline-none font-mono text-xs sm:text-sm bg-zinc-800 text-white"
+          >
+        </div>
+
+        <div>
+          <label class="block text-xs font-black text-zinc-300 mb-1">舞台燈光色系</label>
+          <select id="inputGameColor" class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-700 focus:border-red-500 focus:outline-none font-bold text-sm bg-zinc-800 text-white">
+            <option value="crimsonFlame">烈焰狂潮 (Crimson Red)</option>
+            <option value="electricPurple">電子紫光 (Electric Purple)</option>
+            <option value="cyberAmber">琥珀爆發 (Amber Gold)</option>
+            <option value="neonCyan">藍調極光 (Neon Cyan)</option>
+            <option value="heavyMetal">暗黑金屬 (Heavy Black)</option>
+          </select>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-3 border-t border-zinc-800">
+          <button type="button" onclick="closeAddModal()" class="px-4 py-2 rounded-xl text-zinc-400 font-black text-xs hover:bg-zinc-800">
+            取消
+          </button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 border border-red-400 text-white font-black text-xs shadow-lg shadow-red-900/50">
+            加入舞台！
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- In-Page Fullscreen Player Overlay -->
+  <div id="playerModal" class="fixed inset-0 z-50 bg-black/95 hidden flex-col">
+    <!-- Player Top Bar with mobile-first safe-area and responsive touch buttons -->
+    <div class="h-16 sm:h-14 bg-zinc-950/95 border-b border-zinc-800 px-3 sm:px-6 flex items-center justify-between gap-2 pt-[env(safe-area-inset-top)] shrink-0 z-20">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <!-- Prominent Return to Lobby Button (Mobile & Desktop) -->
+        <button 
+          onclick="closePlayer()" 
+          class="px-3.5 py-2 sm:px-4 sm:py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs sm:text-sm border border-red-400 shadow-lg shadow-red-950 flex items-center gap-1.5 active:scale-95 shrink-0"
+          title="關閉遊戲回到大廳"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>回大廳</span>
+        </button>
+
+        <div class="flex items-center gap-1.5 min-w-0">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping shrink-0 hidden sm:inline-block"></span>
+          <h4 id="playerTitle" class="text-white font-black text-xs sm:text-base rock-font tracking-wide truncate">
+            遊戲舞台載入中...
+          </h4>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button onclick="openExternalTab()" title="若畫面空白請點此在新視窗直接玩" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-black text-xs active:scale-95 flex items-center gap-1.5 shadow-md">
+          <i class="fa-solid fa-up-right-from-square"></i>
+          <span>直接開啟</span>
+        </button>
+        <button onclick="refreshPlayer()" title="重新載入遊戲" class="px-2.5 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-xs font-bold border border-zinc-700 active:scale-95 flex items-center gap-1">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span class="hidden md:inline">重整</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Notice Bar for Cross-Origin Iframe fallback -->
+    <div id="playerNotice" class="bg-zinc-900 border-b border-zinc-800 px-4 py-2 flex items-center justify-between text-xs text-zinc-400">
+      <span class="flex items-center gap-2">
+        <i class="fa-solid fa-circle-info text-amber-400"></i>
+        <span>遊戲載入中...若因手機或瀏覽器防護顯示空白，請點右方按鈕直接連線</span>
+      </span>
+      <button onclick="openExternalTab()" class="text-amber-400 underline font-black ml-2 hover:text-amber-300">
+        點此另開全螢幕 ↗
+      </button>
+    </div>
+
+    <!-- Iframe Stage -->
+    <div class="flex-1 w-full bg-black relative overflow-hidden">
+      <iframe 
+        id="playerIframe" 
+        src="about:blank" 
+        class="w-full h-full border-0 block" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; gamepad; fullscreen"
+      ></iframe>
+
+      <!-- Mobile Floating Quick-Exit Action Button (FAB) -->
+      <button 
+        onclick="closePlayer()" 
+        id="mobileFloatingExitBtn"
+        class="sm:hidden fixed bottom-6 right-4 z-50 px-4 py-2.5 rounded-full bg-red-600/90 hover:bg-red-600 text-white font-black text-xs shadow-2xl shadow-red-950 flex items-center gap-2 border-2 border-red-400 active:scale-90 backdrop-blur-md transition-transform"
+        aria-label="返回遊戲大廳"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span>回大廳</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /* Default Game Catalog with direct GitHub Pages URLs and Screenshot Titles */
+    const DEFAULT_GAMES = [
+      {
+        id: 'devil-cat',
+        name: '惡魔貓 (Devil Cat)',
+        tag: '⚡ 重金屬頭目',
+        desc: '小心調皮惡魔貓的突發重擊！',
+        trackNum: '#01',
+        iconClass: 'fa-solid fa-skull',
+        url: 'https://zzz212089-ux.github.io/devil-cat/',
+        colorTheme: 'crimsonFlame',
+        isDefault: true
+      },
+      {
+        id: 'digital-pet',
+        name: '電子寵物 (Digital Pet)',
+        tag: '⚡ 巡演樂手',
+        desc: '照顧你的搖滾專屬隨行小寵物',
+        trackNum: '#02',
+        iconClass: 'fa-solid fa-egg',
+        url: 'https://zzz212089-ux.github.io/Digital-pet/',
+        colorTheme: 'electricPurple',
+        isDefault: true
+      },
+      {
+        id: 'snake',
+        name: '貪食蛇 (Snake)',
+        tag: '⚡ 極速節奏',
+        desc: '挑戰極限反應，越咬越長狂飆到底！',
+        trackNum: '#03',
+        iconClass: 'fa-solid fa-staff-snake',
+        url: 'https://zzz212089-ux.github.io/Snake/',
+        colorTheme: 'cyberAmber',
+        isDefault: true
+      },
+      {
+        id: 'pacman',
+        name: '小精靈 (PACMAN)',
+        tag: '⚡ 搖滾街機',
+        desc: '經典大混戰，在幽靈包圍中全力突破！',
+        trackNum: '#04',
+        iconClass: 'fa-solid fa-ghost',
+        url: 'https://zzz212089-ux.github.io/PACMAN/',
+        colorTheme: 'neonCyan',
+        isDefault: true
+      }
+    ];
+
+    const COLOR_THEMES = {
+      crimsonFlame: {
+        border: 'border-red-600/60',
+        topGradient: 'from-red-800 to-rose-950',
+        watermark: 'text-red-500/10',
+        badge: 'bg-black/40 border-red-500/50 text-red-300',
+        button: 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-lg shadow-red-900/50'
+      },
+      electricPurple: {
+        border: 'border-purple-600/60',
+        topGradient: 'from-purple-800 to-indigo-950',
+        watermark: 'text-purple-500/10',
+        badge: 'bg-black/40 border-purple-500/50 text-purple-300',
+        button: 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-lg shadow-purple-900/50'
+      },
+      cyberAmber: {
+        border: 'border-amber-600/60',
+        topGradient: 'from-amber-700 to-amber-950',
+        watermark: 'text-amber-500/10',
+        badge: 'bg-black/40 border-amber-500/50 text-amber-300',
+        button: 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white shadow-lg shadow-amber-900/50'
+      },
+      neonCyan: {
+        border: 'border-sky-600/60',
+        topGradient: 'from-sky-700 to-cyan-950',
+        watermark: 'text-sky-500/10',
+        badge: 'bg-black/40 border-sky-500/50 text-sky-300',
+        button: 'bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white shadow-lg shadow-sky-900/50'
+      },
+      heavyMetal: {
+        border: 'border-zinc-700',
+        topGradient: 'from-zinc-800 to-zinc-950',
+        watermark: 'text-zinc-500/10',
+        badge: 'bg-black/40 border-zinc-600 text-zinc-300',
+        button: 'bg-gradient-to-r from-zinc-700 to-zinc-600 hover:from-zinc-600 hover:to-zinc-500 text-white shadow-lg shadow-zinc-900/50'
+      }
+    };
+
+    let games = [];
+    let currentGamePlaying = null;
+
+    /* Load games from localStorage while preserving user additions */
+    function loadGames() {
+      try {
+        const stored = localStorage.getItem('happy_cat_rock_games');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          const customGames = parsed.filter(g => !g.isDefault);
+          // Always ensure default games take the latest corrected GitHub Pages URLs and titles
+          games = DEFAULT_GAMES.map(def => {
+            const match = parsed.find(p => p.id === def.id);
+            return match ? { ...def, ...match, url: def.url, name: def.name, tag: def.tag, desc: def.desc, trackNum: def.trackNum } : def;
+          }).concat(customGames);
+        } else {
+          games = [...DEFAULT_GAMES];
+        }
+      } catch (e) {
+        games = [...DEFAULT_GAMES];
+      }
+      renderGames();
+    }
+
+    function saveGames() {
+      try {
+        localStorage.setItem('happy_cat_rock_games', JSON.stringify(games));
+      } catch (e) {}
+    }
+
+    /* Render game cards matching the screenshot layout */
+    function renderGames() {
+      const container = document.getElementById('gamesContainer');
+      const countText = document.getElementById('gameCountText');
+      if (!container) return;
+
+      countText.innerText = `共有 ${games.length} 款遊戲`;
+      container.innerHTML = '';
+
+      games.forEach((game) => {
+        const theme = COLOR_THEMES[game.colorTheme] || COLOR_THEMES.crimsonFlame;
+        const card = document.createElement('div');
+        card.className = `rounded-3xl border ${theme.border} bg-zinc-950 overflow-hidden flex flex-col justify-between group hover:scale-[1.02] transition-all duration-300 shadow-2xl shadow-black/80`;
+
+        card.innerHTML = `
+          <!-- Upper Gradient Stage Section -->
+          <div class="h-44 bg-gradient-to-b ${theme.topGradient} p-4 flex flex-col justify-between relative overflow-hidden">
+            <!-- Background Watermark -->
+            <span class="absolute -right-2 -bottom-4 text-6xl font-black italic select-none pointer-events-none ${theme.watermark}">
+              ${game.trackNum || '#00'}
+            </span>
+
+            <!-- Top Pill Badge -->
+            <div class="flex items-center justify-between relative z-10">
+              <span class="text-[11px] font-black tracking-wider px-3 py-1 rounded-full border backdrop-blur-sm ${theme.badge}">
+                ${game.tag || '⚡ 搖滾曲目'}
+              </span>
+              ${!game.isDefault ? `
+                <button onclick="deleteGame('${game.id}', event)" title="刪除此遊戲" class="text-zinc-400 hover:text-red-400 text-xs px-2 py-1 rounded-lg bg-black/40 hover:bg-black/60 transition">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              ` : `
+                <a href="${game.url}" target="_blank" rel="noopener noreferrer" title="在新分頁開啟" class="text-zinc-300/80 hover:text-white text-xs px-2 py-1 rounded-lg bg-black/30 hover:bg-black/60 transition flex items-center gap-1">
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+              `}
+            </div>
+
+            <!-- Centered Dark Squircle Icon Container with White Icon -->
+            <div class="w-14 h-14 mx-auto rounded-2xl bg-black/75 border border-white/10 flex items-center justify-center text-2xl text-white shadow-2xl group-hover:scale-110 transition duration-300 relative z-10">
+              <i class="${game.iconClass || 'fa-solid fa-gamepad'}"></i>
+            </div>
+
+            <div class="h-1"></div>
+          </div>
+
+          <!-- Lower Dark Information & Action Section -->
+          <div class="p-5 bg-[#121118] flex flex-col justify-between flex-1 gap-4">
+            <div>
+              <h4 class="text-base sm:text-lg font-black text-white rock-font tracking-wide mb-1.5 truncate">
+                ${game.name}
+              </h4>
+              <p class="text-xs text-zinc-400 font-bold leading-relaxed line-clamp-2">
+                ${game.desc}
+              </p>
+            </div>
+
+            <!-- ▶ 立即開戰 Button -->
+            <button 
+              onclick="playGame('${game.id}')" 
+              class="w-full py-3 rounded-2xl font-black text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition active:scale-95 ${theme.button}"
+            >
+              <i class="fa-solid fa-play text-[11px]"></i>
+              <span>立即開戰</span>
+            </button>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    /* Game Execution */
+    function playGame(id) {
+      const g = games.find(x => x.id === id);
+      if (!g) return;
+      currentGamePlaying = g;
+      document.getElementById('playerTitle').innerText = `⚡ ${g.name}`;
+      
+      const iframe = document.getElementById('playerIframe');
+      // Ensure clean reload
+      iframe.src = 'about:blank';
+      setTimeout(() => {
+        iframe.src = g.url;
+      }, 50);
+      
+      document.getElementById('playerModal').classList.remove('hidden');
+      document.getElementById('playerModal').classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      // Push history state so phone hardware/swipe back button returns to lobby
+      try {
+        window.history.pushState({ inGameModal: true }, '');
+      } catch (e) {}
+    }
+
+    function closePlayer(popHistory = true) {
+      document.getElementById('playerIframe').src = 'about:blank';
+      document.getElementById('playerModal').classList.add('hidden');
+      document.getElementById('playerModal').classList.remove('flex');
+      document.body.style.overflow = '';
+      
+      if (popHistory && window.history.state && window.history.state.inGameModal) {
+        window.history.back();
+      }
+      currentGamePlaying = null;
+    }
+
+    function refreshPlayer() {
+      if (currentGamePlaying) {
+        document.getElementById('playerIframe').src = currentGamePlaying.url;
+      }
+    }
+
+    function openExternalTab() {
+      if (currentGamePlaying) {
+        window.open(currentGamePlaying.url, '_blank');
+      }
+    }
+
+    function deleteGame(id, event) {
+      event.stopPropagation();
+      games = games.filter(g => g.id !== id);
+      saveGames();
+      renderGames();
+    }
+
+    /* Modal Handling */
+    function openAddModal() {
+      document.getElementById('addModal').classList.remove('hidden');
+      document.getElementById('addModal').classList.add('flex');
+    }
+
+    function closeAddModal() {
+      document.getElementById('addModal').classList.add('hidden');
+      document.getElementById('addModal').classList.remove('flex');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('inputGameName').value.trim();
+      const url = document.getElementById('inputGameUrl').value.trim();
+      const color = document.getElementById('inputGameColor').value;
+
+      if (!name || !url) return;
+
+      const newGame = {
+        id: 'custom-' + Date.now(),
+        name: name,
+        iconClass: 'fa-solid fa-gamepad',
+        url: url,
+        colorTheme: color,
+        desc: '使用者收錄自訂遊戲狂歡區',
+        isDefault: false
+      };
+
+      games.push(newGame);
+      saveGames();
+      renderGames();
+      closeAddModal();
+      document.getElementById('inputGameName').value = '';
+      document.getElementById('inputGameUrl').value = '';
+    }
+
+    /* Web Audio Engine: 142 BPM High-Octane Stadium Hard Rock Anthem (Zero-Dropout Architecture) */
+    let audioCtx = null;
+    let isPlaying = false;
+    let schedulerTimer = null;
+    let audioWorker = null;
+    let currentStep = 0;
+    let nextStepTime = 0;
+    let distortionCurve = null;
+    let sharedNoiseBuffer = null;
+    let masterCompressor = null;
+    let masterGain = null;
+
+    /* Pitch Frequencies for Rock Riffing */
+    const A2 = 110.00, C3 = 130.81, D3 = 146.83, E3 = 164.81, F3 = 174.61, G3 = 196.00, A3 = 220.00, B3 = 246.94;
+    const C4 = 261.63, D4 = 293.66, E4 = 329.63, F4 = 349.23, G4 = 392.00, A4 = 440.00, B4 = 493.88;
+    const C5 = 523.25, D5 = 587.33, E5 = 659.25, G5 = 783.99, A5 = 880.00;
+    const C6 = 1046.50, D6 = 1174.66, E6 = 1318.51, G6 = 1567.98;
+
+    /* Stadium Hard Rock Power Chords */
+    const CHORD_A5 = [A2, E3, A3];
+    const CHORD_C5 = [C3, G3, C4];
+    const CHORD_D5 = [D3, A3, D4];
+    const CHORD_F5 = [F3, C4, F4];
+    const CHORD_G5 = [G3, D4, G4];
+    const CHORD_E5 = [E3, B3, E4];
+
+    /* Warm, Punchy Rock Overdrive Curve */
+    function makeDistortionCurve(amount = 45) {
+      const n_samples = 44100;
+      const curve = new Float32Array(n_samples);
+      const deg = Math.PI / 180;
+      for (let i = 0; i < n_samples; ++i) {
+        const x = (i * 2) / n_samples - 1;
+        curve[i] = ((3 + amount) * x * 20 * deg) / (Math.PI + amount * Math.abs(x));
+      }
+      return curve;
+    }
+
+    function initAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContextClass();
+        distortionCurve = makeDistortionCurve(45);
+
+        // Master Dynamics Compressor prevents overload distortion & hardware audio cutoffs
+        masterCompressor = audioCtx.createDynamicsCompressor();
+        masterCompressor.threshold.setValueAtTime(-14, audioCtx.currentTime);
+        masterCompressor.knee.setValueAtTime(25, audioCtx.currentTime);
+        masterCompressor.ratio.setValueAtTime(10, audioCtx.currentTime);
+        masterCompressor.attack.setValueAtTime(0.003, audioCtx.currentTime);
+        masterCompressor.release.setValueAtTime(0.12, audioCtx.currentTime);
+
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.85, audioCtx.currentTime);
+
+        masterCompressor.connect(masterGain);
+        masterGain.connect(audioCtx.destination);
+
+        // Pre-create shared noise buffer for snare and cymbals
+        const bufferSize = audioCtx.sampleRate * 1.5;
+        sharedNoiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = sharedNoiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+
+        // Initialize Background-Resistant Web Worker Ticker (immune to iframe focus throttling)
+        try {
+          const workerBlob = new Blob([`
+            let timer = null;
+            self.onmessage = function(e) {
+              if (e.data === 'start') {
+                if (!timer) timer = setInterval(() => self.postMessage('tick'), 35);
+              } else if (e.data === 'stop') {
+                if (timer) { clearInterval(timer); timer = null; }
+              }
+            };
+          `], { type: 'application/javascript' });
+          audioWorker = new Worker(URL.createObjectURL(workerBlob));
+          audioWorker.onmessage = () => {
+            if (isPlaying) scheduleStep();
+          };
+        } catch (err) {
+          audioWorker = null;
+        }
+      }
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    /* Punchy Hard Rock Drums (All routing through masterCompressor) */
+    function playKick(time) {
+      if (!audioCtx || !masterCompressor) return;
+      const playTime = Math.max(time, audioCtx.currentTime);
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(135, playTime);
+      osc.frequency.exponentialRampToValueAtTime(38, playTime + 0.13);
+      gain.gain.setValueAtTime(1.0, playTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, playTime + 0.15);
+      osc.connect(gain);
+      gain.connect(masterCompressor);
+      osc.start(playTime);
+      osc.stop(playTime + 0.16);
+    }
+
+    function playSnare(time) {
+      if (!audioCtx || !sharedNoiseBuffer || !masterCompressor) return;
+      const playTime = Math.max(time, audioCtx.currentTime);
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = sharedNoiseBuffer;
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1250, playTime);
+      filter.Q.setValueAtTime(0.9, playTime);
+
+      const gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.7, playTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, playTime + 0.17);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(masterCompressor);
+      noise.start(playTime);
+      noise.stop(playTime + 0.18);
+
+      const osc = audioCtx.createOscillator();
+      const oscGain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(200, playTime);
+      osc.frequency.exponentialRampToValueAtTime(90, playTime + 0.08);
+      oscGain.gain.setValueAtTime(0.5, playTime);
+      oscGain.gain.exponentialRampToValueAtTime(0.001, playTime + 0.09);
+      osc.connect(oscGain);
+      oscGain.connect(masterCompressor);
+      osc.start(playTime);
+      osc.stop(playTime + 0.1);
+    }
+
+    function playHiHat(time, open = false) {
+      if (!audioCtx || !sharedNoiseBuffer || !masterCompressor) return;
+      const playTime = Math.max(time, audioCtx.currentTime);
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = sharedNoiseBuffer;
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'highpass';
+      filter.frequency.setValueAtTime(7500, playTime);
+
+      const dur = open ? 0.11 : 0.04;
+      const gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(open ? 0.22 : 0.13, playTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, playTime + dur);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(masterCompressor);
+      noise.start(playTime);
+      noise.stop(playTime + dur + 0.01);
+    }
+
+    function playCrash(time) {
+      if (!audioCtx || !sharedNoiseBuffer || !masterCompressor) return;
+      const playTime = Math.max(time, audioCtx.currentTime);
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = sharedNoiseBuffer;
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(4800, playTime);
+      filter.Q.setValueAtTime(1.0, playTime);
+
+      const gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.42, playTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, playTime + 0.85);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(masterCompressor);
+      noise.start(playTime);
+      noise.stop(playTime + 0.88);
+    }
+
+    /* Crunchy Hard Rock Rhythm Guitar */
+    function playPowerChord(time, chordNotes, duration = 0.18, isPalmMute = false) {
+      if (!audioCtx || !chordNotes || !masterCompressor) return;
+      const playTime = Math.max(time, audioCtx.currentTime);
+      chordNotes.forEach((freq) => {
+        const osc = audioCtx.createOscillator();
+        const dist = audioCtx.createWaveShaper();
+        const filter = audioCtx.createBiquadFilter();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(freq, playTime);
+
+        dist.curve = distortionCurve;
+        dist.oversample = '4x';
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(isPalmMute ? 1300 : 3200, playTime);
+
+        const vol = isPalmMute ? 0.12 : 0.17;
+        gain.gain.setValueAtTime(vol, playTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, playTime + duration);
+
+        osc.connect(dist);
+        dist.connect(filter);
+        filter.connect(gain);
+        gain.connect(masterCompressor);
+
+        osc.start(playTime);
+        osc.stop(playTime + duration + 0.02);
+      });
+    }
+
+    /* Melodic Pentatonic Lead Guitar */
+    function playLeadNote(time, freq, duration = 0.24) {
+      if (!audioCtx || !freq || !masterCompressor) return;
+      const playTime = Math.max(time, audioCtx.currentTime);
+      const osc1 = audioCtx.createOscillator();
+      const osc2 = audioCtx.createOscillator();
+      const dist = audioCtx.createWaveShaper();
+      const filter = audioCtx.createBiquadFilter();
+      const gain = audioCtx.createGain();
+
+      osc1.type = 'sawtooth';
+      osc2.type = 'sawtooth';
+      osc1.frequency.setValueAtTime(freq, playTime);
+      osc2.frequency.setValueAtTime(freq * 1.006, playTime); // detuned chorus
+
+      dist.curve = distortionCurve;
+      dist.oversample = '4x';
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(2100, playTime);
+      filter.Q.setValueAtTime(2.2, playTime);
+
+      gain.gain.setValueAtTime(0.22, playTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, playTime + duration);
+
+      osc1.connect(dist);
+      osc2.connect(dist);
+      dist.connect(filter);
+      filter.connect(gain);
+      gain.connect(masterCompressor);
+
+      osc1.start(playTime);
+      osc2.start(playTime);
+      osc1.stop(playTime + duration + 0.03);
+      osc2.stop(playTime + duration + 0.03);
+    }
+
+    /* 64-step Driving Hard Rock Riff Pattern (142 BPM, 4 Bars) */
+    const ROCK_STEPS = [
+      // Bar 1: Driving A5 Classic Rock Hook
+      { kick: 1, crash: 1, chord: CHORD_A5, dur: 0.32, solo: A4 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_A5, dur: 0.18, solo: C5 },
+      { snare: 1, hat: 1, chord: CHORD_C5, dur: 0.22, solo: D5 },
+      { hat: 1, chord: CHORD_C5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_D5, dur: 0.28, solo: E5 },
+      { hat: 1, chord: CHORD_D5, pm: 1 },
+
+      { kick: 1, hat: 1, chord: CHORD_A5, dur: 0.26, solo: G5 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_G5, dur: 0.2, solo: E5 },
+      { snare: 1, hat: 1, chord: CHORD_D5, dur: 0.24, solo: D5 },
+      { hat: 1, chord: CHORD_D5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_C5, dur: 0.22, solo: C5 },
+      { hat: 1, chord: CHORD_C5, pm: 1 },
+
+      // Bar 2: Steady Groove & Punchy Bass Turnaround
+      { kick: 1, hat: 1, chord: CHORD_A5, dur: 0.32, solo: A4 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_C5, dur: 0.2, solo: E5 },
+      { snare: 1, hat: 1, chord: CHORD_D5, dur: 0.24, solo: G5 },
+      { hat: 1, chord: CHORD_D5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_F5, dur: 0.26, solo: A5 },
+      { hat: 1, chord: CHORD_F5, pm: 1 },
+
+      { kick: 1, hat: 1, chord: CHORD_G5, dur: 0.28, solo: C6 },
+      { hat: 1, chord: CHORD_G5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_E5, dur: 0.24, solo: B4 },
+      { hat: 1, chord: CHORD_E5, pm: 1 },
+      { snare: 1, hat: 1, chord: CHORD_A5, dur: 0.32, solo: A5 },
+      { kick: 1, hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+
+      // Bar 3: Screaming Guitar Lead & Kick Accents
+      { kick: 1, crash: 1, chord: CHORD_A5, dur: 0.34, solo: E6 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_A5, dur: 0.2, solo: D6 },
+      { snare: 1, hat: 1, chord: CHORD_C5, dur: 0.24, solo: C6 },
+      { hat: 1, chord: CHORD_C5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_D5, dur: 0.28, solo: A5 },
+      { hat: 1, chord: CHORD_D5, pm: 1 },
+
+      { kick: 1, hat: 1, chord: CHORD_F5, dur: 0.26, solo: G5 },
+      { hat: 1, chord: CHORD_F5, pm: 1 },
+      { kick: 1, hat: 1, chord: CHORD_G5, dur: 0.26, solo: A5 },
+      { hat: 1, chord: CHORD_G5, pm: 1 },
+      { snare: 1, hat: 1, chord: CHORD_A5, dur: 0.3, solo: C6 },
+      { kick: 1, hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+      { hat: 1, chord: CHORD_A5, pm: 1 },
+
+      // Bar 4: Rock Drum Fill & Anthem Climax
+      { kick: 1, chord: CHORD_D5, dur: 0.24, solo: D6 },
+      { hat: 1, chord: CHORD_D5, pm: 1 },
+      { kick: 1, chord: CHORD_E5, dur: 0.24, solo: E6 },
+      { hat: 1, chord: CHORD_E5, pm: 1 },
+      { snare: 1, kick: 1, chord: CHORD_A5, dur: 0.2 },
+      { snare: 1, solo: E5 },
+      { kick: 1, solo: G5 },
+      { kick: 1, solo: A5 },
+
+      { snare: 1, kick: 1, crash: 1, chord: CHORD_G5, dur: 0.28, solo: C6 },
+      { snare: 1, solo: D6 },
+      { kick: 1, solo: E6 },
+      { snare: 1, solo: G6 },
+      { kick: 1, crash: 1, chord: CHORD_A5, dur: 0.45, solo: A5 },
+      { hat: 1 },
+      { snare: 1 },
+      { snare: 1, crash: 1 }
+    ];
+
+    /* Resilient audio scheduler with 0.85s lookahead buffer and background-tab immunity */
+    function scheduleStep() {
+      if (!audioCtx || !isPlaying) return;
+
+      // Auto-resume if the browser suspended the audio context
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      const stepDuration = 60 / (142 * 4); // ~0.1056s per 16th note at 142 BPM
+
+      // Resilient schedule window of 0.85s protects against timer throttling when inside iframe or background
+      while (nextStepTime < audioCtx.currentTime + 0.85) {
+        const step = ROCK_STEPS[currentStep % ROCK_STEPS.length];
+
+        if (step.crash) playCrash(nextStepTime);
+        if (step.kick) playKick(nextStepTime);
+        if (step.snare) playSnare(nextStepTime);
+        if (step.hat) playHiHat(nextStepTime, !!step.open);
+        if (step.chord) playPowerChord(nextStepTime, step.chord, step.dur || 0.16, !!step.pm);
+        if (step.solo) playLeadNote(nextStepTime, step.solo, 0.24);
+
+        nextStepTime += stepDuration;
+        currentStep = (currentStep + 1) % ROCK_STEPS.length;
+      }
+
+      // Self-correcting catchup if frame was temporarily frozen
+      if (nextStepTime < audioCtx.currentTime) {
+        nextStepTime = audioCtx.currentTime + 0.05;
+      }
+
+      // Secondary backup timer in case Web Worker is unavailable
+      if (isPlaying && !audioWorker) {
+        clearTimeout(schedulerTimer);
+        schedulerTimer = setTimeout(scheduleStep, 40);
+      }
+    }
+
+    /* Start / Stop Toggle */
+    function toggleRockMusic(event) {
+      if (event) event.stopPropagation();
+      initAudioContext();
+
+      if (!isPlaying) {
+        isPlaying = true;
+        nextStepTime = audioCtx.currentTime + 0.05;
+        if (audioWorker) audioWorker.postMessage('start');
+        scheduleStep();
+        updateMusicUI(true);
+      } else {
+        isPlaying = false;
+        if (audioWorker) audioWorker.postMessage('stop');
+        clearTimeout(schedulerTimer);
+        updateMusicUI(false);
+      }
+    }
+
+    function updateMusicUI(active) {
+      const text = document.getElementById('musicText');
+      const visualizer = document.getElementById('eqVisualizer');
+      if (active) {
+        text.innerText = '音樂狂歡中 ⚡';
+        visualizer.innerHTML = `
+          <span class="w-1 bg-red-500 rounded-full eq-bar-active"></span>
+          <span class="w-1 bg-amber-400 rounded-full eq-bar-active"></span>
+          <span class="w-1 bg-rose-500 rounded-full eq-bar-active"></span>
+          <span class="w-1 bg-red-400 rounded-full eq-bar-active"></span>
+        `;
+      } else {
+        text.innerText = '點擊播放音樂 ⚡';
+        visualizer.innerHTML = `
+          <span class="w-1 bg-zinc-500 rounded-full h-1"></span>
+          <span class="w-1 bg-zinc-500 rounded-full h-2"></span>
+          <span class="w-1 bg-zinc-500 rounded-full h-1"></span>
+          <span class="w-1 bg-zinc-500 rounded-full h-1.5"></span>
+        `;
+      }
+    }
+
+    /* Page Initialization */
+    window.onload = function () {
+      loadGames();
+
+      // Handle mobile swipe-back or browser back button to close game
+      window.addEventListener('popstate', (e) => {
+        if (currentGamePlaying) {
+          closePlayer(false);
+        }
+      });
+
+      // Handle ESC key to return to lobby
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && currentGamePlaying) {
+          closePlayer();
+        }
+      });
+
+      // Setup audio unlock on first user gesture
+      const unlockAudio = () => {
+        if (!audioCtx) initAudioContext();
+        window.removeEventListener('pointerdown', unlockAudio);
+        window.removeEventListener('keydown', unlockAudio);
+        window.removeEventListener('touchstart', unlockAudio);
+      };
+      window.addEventListener('pointerdown', unlockAudio, { once: true });
+      window.addEventListener('keydown', unlockAudio, { once: true });
+      window.addEventListener('touchstart', unlockAudio, { once: true });
+    };
+  </script>
+</body>
+</html>
